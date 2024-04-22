@@ -15,9 +15,3 @@ sudo systemctl enable docker
 wget https://raw.githubusercontent.com/davidjsam/azure-openmrs/main/all-in-one/docker-compose.yml
 sudo docker-compose up -d
 
-# Checking Web Service Status
-echo "Waiting for web services."
-until $(curl --output /dev/null --silent --head --fail http://127.0.0.1:8080/openmrs); do
-    printf '.'
-    sleep 5
-done
