@@ -1,7 +1,7 @@
 version: '2.1'
  
 services:
-  db:
+  openmrs-referenceapplication-mysql:
     restart: "always"
     image: mariadb:10.11.7
     command: "mysqld --character-set-server=utf8 --collation-server=utf8_general_ci"
@@ -15,7 +15,8 @@ services:
     healthcheck:
       test: "exit 0"
     volumes:
-      - db-data:/var/lib/mysql
+      - openmrs-referenceapplication-mysql-data:/var/lib/mysql
+ 
+ 
 volumes:
-  openmrs-data: ~
-  db-data: ~
+   openmrs-referenceapplication-mysql-data:
