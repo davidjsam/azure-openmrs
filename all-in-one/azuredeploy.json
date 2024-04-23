@@ -268,33 +268,7 @@
           "linuxConfiguration": "[if(equals(parameters('authenticationType'), 'password'), json('null'), variables('linuxConfiguration'))]"
         }
       }
-    },
-        {
-            "name": "OpenMRS/application",
-            "type": "Microsoft.Compute/virtualMachines/extensions",
-            "apiVersion": "2019-07-01",
-            "location": "[resourceGroup().location]",
-            "tags": {
-                "displayName": "install openmrs"
-            },
-            "dependsOn": [
-                "[parameters('vmName')]"
-            ],
-            "properties": {
-                "publisher": "Microsoft.Azure.Extensions",
-                "type": "CustomScript",
-                "typeHandlerVersion": "2.1",
-                "autoUpgradeMinorVersion": true,
-                "settings": {
-                    "fileUris": [
-                        "https://raw.githubusercontent.com/davidjsam/azure-openMRS/main/all-in-one/install.sh"
-                    ]
-                },
-                "protectedSettings": {
-                    "commandToExecute": "sh install.sh"
-                }
-            }
-        }
+    }
   ],
   "outputs": {
     "adminUsername": {
